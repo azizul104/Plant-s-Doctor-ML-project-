@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+{% block stylee %}
+
+<style>
+#predict-value{
+        cursor: pointer;
+        width: 100%; 
+        height: 40px; 
+        background-color: #56d4bf; 
+        border-radius: 25px;
+        /* border-style: dotted;  */
+        text-align: center; 
+        margin-top: 30px;
+    }
+
+    #submit-id{
+        height: 40px;
+        width: 100%;
+        background-color: #56d4bf;
+        border-radius: 25px;
+        border-style: solid;
+        text-align: center;
+        margin-top: 27px;
+        display: none;
+    }
+    
+    #show-id{
+        background-color: antiquewhite; 
+        /* border-style: dotted;  */
+        border-radius: 20px;
+        max-width: 800px;
+        margin-top: 27px;
+        height: 50px;
+        padding-top: 13px;
+        text-align: center;
+        text-size-adjust:initial; 
+        text-decoration: red;
+        display: none;
+    }
+
+    #main-div{
+        width:600px;
+        margin: 0 auto; 
+        padding-top: 100px; 
+        padding-bottom: 50px;
+    }
+    #sub-main-div{
+        align-items: center; 
+        text-align: center;
+    }
+
+    #sol-but{
+        display: none;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+        border-radius: 20px;
+        background-color: hsl(130, 77%, 62%);
+    }
+ 
+    .sol-div{
+        /* background-color: blue; */
+        max-width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+
+    .current4{
+    background-color: #00ffdd;
+}
+
+    .sidebar11 {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar11 a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar11 a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar11 a:hover:not(.active) {
+  background-color: #00ffdd;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar11 {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar11 a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+</style>
+
+{% endblock %}
+{% block title %}Rice{% endblock %} <!-- show title -->
+{% block content %}
+
+<div style="text-align: center; width: 100%;"><h1>Rice/ধান</h1></div>
+
+<div id="main-div">
+
+    <div id="sub-main-div">
+        <img id="output" src="http://www.ezcopy.net/wp-content/uploads/2018/02/upload-1.png" style="width: 300px; height: 250px;" title="Press Choose to choice your image"/>
+
+        <form id="upload-file">    
+
+            <label for="image" style="cursor: pointer;" id="predict-value" title="Choose a image to predict">
+                <div style="padding-top: 5px;">Choose / বাছাই করুন</div>
+            </label>
+            <input type=file name="image" onchange="loadFile(event)" id="image" style="opacity: 0; z-index: -1; position: absolute;">
+       
+
+        </form>
+        
+
+        <button id="submit-id" title="Press here for the Prediction">Predict/রেজাল্ট দেখুন</button>
+
+    </div>
+    <b><div id="show-id"></div></b>
+    <div style="width: 100%; text-align: center;">
+    <button id="sol-but">show</button>
+    </div>
+
+    
+    <!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+</div>
+
+
+
+    <!-- solution-div----------------------------------------------------------------------- -->
+<div style="align-items: center; width: 100%;">
+<div class="sol-div">
+
+    <p id="solution"></p> 
+
+    <div id="solution1" style="display: none;">
+        <h3>Know about the Disease</h3>
+        <p>Brown spot of rice is a plant fungal disease that usually occurs on the host leaves and glume, as well as seedlings, sheaths, stems and grains of adult host plants. Hosts include Oryza (Asian rice), Leersia (Cutgrass), Zizania (Wild rice), and other species as well such as Echinochloa colona (junglerice) and Zea mays (maize).</p>
+        <h2>There are several factors influencing the disease cycle and epidemics of brown spot of rice disease.</h2>
+        <p>1. Rainfall and drought [6] - The first factor affecting Cochliobolus miyabeanus life cycle is rainfall and drought. It tends to proliferate when there is reduced rainfall and in dewy conditions. In addition to a low level of precipitation, severe epidemics of rice brown spot occur during drought season. Compared to well flooded or irrigated areas, disease occurrence is favored in drier environments where a reduced amount of water is present. </p>
+        <p>2. Temperature and humidity - Another factor affecting disease development for Cochliobolus miyabeanus is temperature and humidity. Infection efficiency is influenced by the humidity level of the leaves, and lowered minimum temperature for crop cultivation favors epidemics of this disease. Cochliobolus miyabeanus grows well at lower temperatures during its developmental stages compared to the developed stage,[7] so if high temperatures are maintained in the area it is likely that farmers can restrict the growth of this pathogen. The optimal temperature for the pathogen is 28 °C (82 °F).</p>
+        <p>3. Nutrition level[6] - Nutrition of the host plant may also influence the level of disease development. For example, low soil nutrient content is associated with epidemics of rice brown spot. If soil minerals such as nitrogen, potassium, phosphorus, silicon and manganese are deficient, this will likely favor disease development. In specific, in areas where silicon is present in a high amount in the soil, the host becomes less susceptible to this disease because silicon not only alleviates physiological stresses of the host, but also promotes disease resistance ability in the host. Furthermore, soil moisture level contributes to disease occurrence. Brown spot of rice is favored in areas where water content is low in soil. </p>
+        <h4>Solution:</h4>
+        <p>
+            <ul style="list-style: disc;">
+                <li>The spread of the fungus can be prevented by using certified disease-free seed and using available resistant varieties such as MAC 18</li>    
+                <li>Avoiding dense sowing will can also help prevent the spread of the fungus as it reduces humidity</li>
+                <li>Maintaining control of weeds and removal of volunteer crops in the field can also prevent fungal spread,as well as burning the stubble of infected plants.</li>
+                <li>Seed treatments can also be used as a preventative measure. Seeds can be treated with fungicides [4][12][13] or alternatively soaking seeds in cold water for 8 hours before treating with hot water (53-54°C) for 10-12 minutes prior to planting.</li>
+                <li>Soil treatments can also be used to prevent the spread of C. miyabeanus. The addition of potassium and calcium if the soil is deficient can help boost disease resistance.[13][14] However, excessive application of nitrogen fertilisers should be avoided</li>
+            </ul>
+        </p>
+    </div>
+ 
+    <div id="solution2" style="display: none;" >
+        <h3>Know about the Disease : </h3>
+        <p>
+            The mining of the grubs will be clearly seen on the leaves.
+            Scraping of the upper surface of the leaf blade leaving only the lower epidermis as white streaks parallel to the midrib.
+            Tunneling of larvae through leaf tissue causes irregular translucent white patches that are parallel to the leaf veins.
+            Damaged leaves wither off.
+            Rice field appears burnt when severely infested.
+        </p>
+        <h4>Solution : </h4>
+        <p>
+            <ul style="list-style: disc;">
+                <li>Avoid over fertilizing the field.</li> 
+                <li>Close plant spacing results in greater leaf densities that can tolerate higher hispa numbers. </li>   
+                <li>Leaf tip containing blotch mines should be destroyed.</li>
+                <li>Manual collection and killing of beetles – hand nets.</li>
+                <li>To prevent egg laying of the pests, the shoot tips can be cut.</li>
+                <li>Clipping and burying shoots in the mud can reduce grub populations by 75 - 92%.</li>
+                <li>Reduviid bug eats upon the adults</li>
+                <li>Spraying of methyl parathion 0.05% or Quinalphos 0.05%.</li>
+            </ul>
+        </p>
+        <p>For more about solution you can visit this websites : </p>
+        <ol>
+            <li><a href="http://www.agritech.tnau.ac.in/expert_system/paddy/cppests_ricehispa.html">Rice Hispa</a></li>   
+        </ol>
+        
+    </div> 
+
+    <div id="solution3" style="display: none;">
+        <h3>Know about the Disease</h3>
+            <p>The symptoms of rice blast include lesions that can be found on all parts of the plant, including leaves, leaf collars, necks, panicles, pedicels, and seeds. A recent report shows that even roots can become infected. However, the most common and diagnostic symptom, diamond shaped lesions, of rice blast occur on the leaves, whereas lesions on the sheaths are relatively rare.
+
+                Rice leaves. The symptoms on leaves may vary according to the environmental conditions, the age of the plant, and the levels of resistance of the host cultivars (Figure 4). On susceptible cultivars, lesions may initially appear gray-green and water-soaked with a darker green border and they expand rapidly to several centimeters in length. On susceptible cultivars, older lesions often become light tan in color with necrotic borders. On resistant cultivars, lesions often remain small in size (1-2 mm) and brown to dark brown in color.
+                
+                Rice collars. The collar of a rice plant refers to the junction of the leaf and the stem sheath. Symptoms of infection of the collars consist of a general area of necrosis at the union of the two tissues (Figure 5). Collar infections can kill the entire leaf and may extend a few millimeters into and around the sheath. The fungus may produce spores on these lesions.
+                
+                Rice necks and panicles. The neck of the rice plant refers to that portion of the stem that rises above the leaves and supports the seed head or panicle. Necks are often infected at the node by the rice blast fungus and infection leads to a condition called rotten neck or neck blast (Figure 6). Infection of the necks can be very destructive, causing failure of the seeds to fill (a condition called blanking) or causing the entire panicle to fall over as if rotted. The rice blast fungus can also infect the panicles as the seeds form (Figure 7). Lesions can be found on the panicle branches, spikes, and spikelets. The lesions are often gray brown discolorations of the branches of the panicle, and, over time, the branches may break at the lesion.
+                
+                Rice seeds. The fungus has often been isolated from the pedicels of the seeds. Seeds are not produced when pedicels become infected, a condition called blanking. Symptoms of rice blast on seeds themselves consist of brown spots, blotches (Figure 8), and occasionally the classic diamond-shaped lesion often seen on leaves. The process and the time during which infection of seeds by spores of the pathogen occurs has not been fully described but recent information shows that the fungus can infect seeds by infecting the florets as they mature into seeds, and it is believed that this is the main way seed infection develops. </p>
+        <h4>Solution:</h4>
+        <p>
+            Cultural strategies to manage this disease include useful techniques that rice producers are urged to follow. Crop rotation is one simple and effective technique that is highly recommended simply because it provides a mechanism that separates viable spores in crop residue (Figure 15) from the newly emerging seedlings. A second technique that rice producers are urged to consider is to fertilize each of the different cultivars properly. Overuse of nitrogen fertilizers, as shown above, increases the amount of rice blast in their fields while often failing to significantly increase yields. A third technique that is often overlooked or difficult to employ in some fields is maintaining a proper flood level for the rice to grow (Figure 20). Rice blast is known to be more severe in fields or parts of fields in which the water in paddies falls below recommended levels. Thus, rice blast is often severe in fields that were not rotated, are under-irrigated, and are over-fertilized (Figure 21). Finally, using high quality and disease-free seed is always highly recommended because infested seeds left on the soil surface provide inoculum from which epidemics develop. 
+        </p>
+
+        <p>For more about solution you can visit this websites : </p>
+        <ol>
+            <li><a href="https://www.apsnet.org/edcenter/disandpath/fungalasco/pdlessons/Pages/RiceBlast.aspx">Rice Leaf Blast</a></li>   
+        </ol>
+
+    </div>
+    <div id="solution4" style="display: none;">
+
+        <h3 style="color: green;">Rice Has No Disease</h3>
+
+    </div>
+
+
+</div>
+</div>
+<!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+
+    
+    
+
+<script>
+
+    chkkk = 1;
+    glb_var = "";
+    $(document).ready(function(){
+
+        $('#sol-but').click(function(){
+            var n = glb_var.search("Brown");
+            var m = glb_var.search("Hispa");
+            var o = glb_var.search("Blast");
+        
+            var $this = $(this);
+            if(glb_var !== "" && glb_var !== "You Haven't Choose anything YET !!!")
+            $this.toggleClass('hide');
+            if($this.hasClass('hide') && glb_var !== "" && glb_var !== "You Haven't choosen anything YET !!!")
+            {
+                $this.text('hide');
+                if(n !== -1)
+                $("#solution1").show();
+                else if(m !== -1)
+                $("#solution2").show();
+                else if(o != -1)
+                $("#solution3").show();
+                else
+                $("#solution4").show();
+            }              
+            else
+            {
+                $("#solution1").hide();
+                $("#solution2").hide();
+                $("#solution3").hide();
+                $("#solution4").hide();
+                $this.text('show');
+                
+            }
+        
+        });  
+
+        $("#image").change(function() { 
+        var fileName = $("#image").val();  
+
+        if(fileName) {   
+            $('#submit-id').show();
+            $('#show-id').hide();
+            
+            if($('#sol-but').hasClass('hide'))
+            $('#sol-but').click();
+            $('#sol-but').hide();
+        } 
+    
+        });
+
+
+    });
+
+
+    $('#submit-id').click(function() {
+      
+      var form_data = new FormData($('#upload-file')[0]);
+      var $myvar;
+      $.ajax({
+          type: 'POST',
+          url: '/rice-predict',
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              console.log('Success!');
+          },
+      })
+      .done(function(data) {
+          $('#show-id').text(data.name).show();           
+          $("#solution").text(data.name).hide();
+          var myvar = document.getElementById("solution").textContent;
+          glb_var = document.getElementById("solution").textContent;
+          var qq = glb_var.search("Wrong");
+          if(qq == -1)
+          $('#sol-but').show();
+
+        });
+    
+  });
+</script>
+
+{% endblock %}
+
+

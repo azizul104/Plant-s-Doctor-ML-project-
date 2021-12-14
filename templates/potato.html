@@ -1,0 +1,315 @@
+{% extends "base.html" %}
+
+{% block stylee %}
+
+<style>
+#predict-value{
+        cursor: pointer;
+        width: 100%; 
+        height: 40px; 
+        background-color: #56d4bf; 
+        border-radius: 25px;
+        /* border-style: dotted;  */
+        text-align: center; 
+        margin-top: 30px;
+    }
+
+    #submit-id{
+        height: 40px;
+        width: 100%;
+        background-color: #56d4bf;
+        border-radius: 25px;
+        border-style: solid;
+        text-align: center;
+        margin-top: 27px;
+        display: none;
+    }
+    
+    #show-id{
+        background-color: antiquewhite; 
+        /* border-style: dotted;  */
+        border-radius: 20px;
+        max-width: 800px;
+        margin-top: 27px;
+        height: 50px;
+        padding-top: 13px;
+        text-align: center;
+        text-size-adjust:initial; 
+        text-decoration: red;
+        display: none;
+    }
+
+    #main-div{
+        width:600px;
+        margin: 0 auto; 
+        padding-top: 100px; 
+        padding-bottom: 50px;
+    }
+    #sub-main-div{
+        align-items: center; 
+        text-align: center;
+    }
+
+    #sol-but{
+        display: none;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+        border-radius: 20px;
+        background-color: hsl(130, 77%, 62%);
+    }
+ 
+    .sol-div{
+        /* background-color: blue; */
+        max-width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+
+    .current3{
+    background-color: #00ffdd;
+}
+
+    .sidebar11 {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar11 a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar11 a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar11 a:hover:not(.active) {
+  background-color: #00ffdd;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar11 {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar11 a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+</style>
+
+{% endblock %}
+{% block title %}Potato{% endblock %} <!-- show title -->
+{% block content %}
+
+<div style="text-align: center; width: 100%;"><h1>Potato/আলু</h1></div>
+
+<div id="main-div">
+
+    <div id="sub-main-div">
+        <img id="output" src="http://www.ezcopy.net/wp-content/uploads/2018/02/upload-1.png" style="width: 300px; height: 250px;" title="Press Choose to choice your image"/>
+
+        <form id="upload-file">    
+
+            <label for="image" style="cursor: pointer;" id="predict-value" title="Choose a image to predict">
+                <div style="padding-top: 5px;">Choose / বাছাই করুন</div>
+            </label>
+            <input type=file name="image" onchange="loadFile(event)" id="image" style="opacity: 0; z-index: -1; position: absolute;">
+       
+
+        </form>
+        
+
+        <button id="submit-id" title="Press here for the Prediction">Predict/রেজাল্ট দেখুন</button>
+
+    </div>
+    <b><div id="show-id"></div></b>
+    <div style="width: 100%; text-align: center;">
+    <button id="sol-but">show</button>
+    </div>
+
+    
+    <!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+</div>
+
+
+
+    <!-- solution-div----------------------------------------------------------------------- -->
+<div style="align-items: center; width: 100%;">
+<div class="sol-div">
+
+    <p id="solution"></p> 
+
+    <div id="solution1" style="display: none;">
+        <h3>Know about the Disease</h3>
+        <p>The critical thing that you need to remember is that late blight needs living tissue to survive. When conditions are right such as the cold, wet weather and the thunder storms of 1993, late blight can survive very well and be moved as much as 50 miles in a day. For a disease to exist, it needs three things: a host, the pathogen and the right environment -- the disease triangle </p>
+        <h4>Solution:</h4>
+        <p>
+            <ul style="list-style: disc;">
+                <li>Eliminate potato cull piles and all other sources of living tubers and eliminate volunteer potatoes from last season.</li>
+                <li> Be aware of the relative susceptibility to late blight of the potato varieties that you are planting. Russet Burbank and Snowden are moderately susceptible; Atlantic, Monona, Norchip, Red Norland, Russet Norkotah, and Yukon Gold are very susceptible.</li>
+                <li>Plant certified seed and be aware of the late blight situation in the field from which it was harvested. Check the "North American Certified Seed Potato Health Certificate" provided for each lot.</li>
+                <li>Minimize handling of seed tubers; if seed is cut, immediately treat with a mancozeb-containing fungicide.</li>
+                <li>Hill potatoes to ensure that young tubers are adequately covered by soil.</li>
+                <li>Fertilize and irrigate optimally for the variety.</li>
+                <li>Apply the first foliar fungicide treatment when recommended by disease forecasting models, confirmed sightings of disease or weather patterns favorable for carrying late blight from other states. Whichever occurs first.</li>
+                <li>Thoroughly scout each field throughout the season to detect late and/or early blight as soon as possible. Pay special attention to the first span of center-pivots, low-lying areas and along the sides of the pivot platform.</li>
+                <li>Kill vines totally prior to harvest because late blight does not sporulate on dead plant tissue. It's an obligate parasite.</li>
+                <li>Infected tubers should not be stored. Monitor storage carefully for any sign of tuber decay.</li>
+            </ul>
+        </p>
+    </div>
+    <div id="solution2" style="display: none;" >
+        <h3>Know about the Disease : </h3>
+        <p>Common on tomato and potato plants, early blight is caused by the fungus Alternaria solani </p>
+        <p>Early blight overwinters on infected plant tissue and is spread by splashing rain, irrigation, insects and garden tools. The disease is also carried on tomato seeds and in potato tubers. In spite of its name, early blight can occur any time throughout the growing season. High temperatures (80-85˚F.) and wet, humid conditions promote its rapid spread. In many cases, poorly nourished or stressed plants are attacked.</p>
+        <h4>Solution : </h4>
+        <p>
+            <ul style="list-style: disc;">
+                <li>Prune or stake plants to improve air circulation and reduce fungal problems.</li>
+                <li>Make sure to disinfect your pruning shears (one part bleach to 4 parts water) after each cut.</li>
+                <li>Keep the soil under plants clean and free of garden debris. Add a layer of organic compost to prevent the spores from splashing back up onto vegetation.</li>
+                <li>Drip irrigation and soaker hoses can be used to help keep the foliage dry.</li>
+                <li>For best control, apply copper-based fungicides early, two weeks before disease normally appears or when weather forecasts predict a long period of wet weather. Alternatively, begin treatment when disease first appears, and repeat every 7-10 days for as long as needed.</li>
+
+            </ul>
+        </p>
+        <p>For more about solution you can visit this websites : </p>
+        <ol>
+            <li><a href="https://www.gardeningknowhow.com/edible/vegetables/potato/potato-early-blight-treatment.htm">potato solution 1</a></li>
+            <li><a href="https://www.planetnatural.com/pest-problem-solver/plant-disease/early-blight/">Potato solution 2</a></li>
+            <li><a href="https://www.apsnet.org/edcenter/disandpath/fungalasco/pdlessons/Pages/PotatoTomato.aspx">Potato and Tomato solution</a></li>
+        </ol>
+        
+    </div> 
+    <div id="solution3" style="display: none;">
+        <h1 style="color: green;">Your Plant has no disease............</h1>
+    </div>
+
+
+</div>
+</div>
+<!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+
+    
+    
+
+<script>
+
+    chkkk = 1;
+    glb_var = "";
+    $(document).ready(function(){
+
+        $('#sol-but').click(function(){
+            var n = glb_var.search("Late-Blight");
+            var m = glb_var.search("Early-Blight");
+        
+            var $this = $(this);
+            if(glb_var !== "" && glb_var !== "You Haven't Choose anything YET !!!")
+            $this.toggleClass('hide');
+            if($this.hasClass('hide') && glb_var !== "" && glb_var !== "You Haven't choosen anything YET !!!")
+            {
+                $this.text('hide');
+                if(n !== -1)
+                $("#solution1").show();
+                else if(m !== -1)
+                $("#solution2").show();
+                else
+                $("#solution3").show();
+            }              
+            else
+            {
+                $("#solution1").hide();
+                $("#solution2").hide();
+                $("#solution3").hide();
+                $this.text('show');
+                
+            }
+        
+        });  
+
+        $("#image").change(function() { 
+        var fileName = $("#image").val();  
+
+        if(fileName) {   
+            $('#submit-id').show();
+            $('#show-id').hide();
+            
+            if($('#sol-but').hasClass('hide'))
+            $('#sol-but').click();
+            $('#sol-but').hide();
+        } 
+    
+        });
+
+
+    });
+
+
+    $('#submit-id').click(function() {
+      
+      var form_data = new FormData($('#upload-file')[0]);
+      var $myvar;
+      $.ajax({
+          type: 'POST',
+          url: '/potato-predict',
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              console.log('Success!');
+          },
+      })
+      .done(function(data) {
+          $('#show-id').text(data.name).show();           
+          $("#solution").text(data.name).hide();
+          var myvar = document.getElementById("solution").textContent;
+          glb_var = document.getElementById("solution").textContent;
+          var qq = glb_var.search("Wrong");
+          if(qq == -1)
+          $('#sol-but').show();
+
+        });
+    
+  });
+</script>
+
+{% endblock %}
+
+

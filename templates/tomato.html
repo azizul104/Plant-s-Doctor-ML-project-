@@ -1,0 +1,435 @@
+{% extends "base.html" %}
+
+{% block stylee %}
+
+<style>
+#predict-value{
+        cursor: pointer;
+        width: 100%; 
+        height: 40px; 
+        background-color: #56d4bf; 
+        border-radius: 25px;
+        /* border-style: dotted;  */
+        text-align: center; 
+        margin-top: 30px;
+    }
+
+    #submit-id{
+        height: 40px;
+        width: 100%;
+        background-color: #56d4bf;
+        border-radius: 25px;
+        border-style: solid;
+        text-align: center;
+        margin-top: 27px;
+        display: none;
+    }
+    
+    #show-id{
+        background-color: antiquewhite; 
+        /* border-style: dotted;  */
+        border-radius: 20px;
+        max-width: 800px;
+        margin-top: 27px;
+        height: 50px;
+        padding-top: 13px;
+        text-align: center;
+        text-size-adjust:initial; 
+        text-decoration: red;
+        display: none;
+    }
+
+    #main-div{
+        width:600px;
+        margin: 0 auto; 
+        padding-top: 100px; 
+        padding-bottom: 50px;
+    }
+    #sub-main-div{
+        align-items: center; 
+        text-align: center;
+    }
+
+    #sol-but{
+        display: none;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+        border-radius: 20px;
+        background-color: hsl(130, 77%, 62%);
+    }
+ 
+    .sol-div{
+        /* background-color: blue; */
+        max-width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+
+.current2{
+    background-color: #00ffdd;
+}
+
+.sidebar11 {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar11 a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar11 a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar11 a:hover:not(.active) {
+  background-color: #00ffdd;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar11 {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar11 a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+</style>
+
+{% endblock %}
+{% block title %}Tomato{% endblock %} <!-- show title -->
+{% block content %}
+
+<div style="text-align: center; width: 100%;"><h1>Tomato/টমাটো</h1></div>
+
+<div id="main-div">
+
+    <div id="sub-main-div">
+        <img id="output" src="http://www.ezcopy.net/wp-content/uploads/2018/02/upload-1.png" style="width: 300px; height: 250px;" title="Press Choose to choice your image"/>
+
+        <form id="upload-file">    
+
+            <label for="image" style="cursor: pointer;" id="predict-value" title="Choose a image to predict">
+                <div style="padding-top: 5px;">Choose / বাছাই করুন</div>
+            </label>
+            <input type=file name="image" onchange="loadFile(event)" id="image" style="opacity: 0; z-index: -1; position: absolute;">
+       
+
+        </form>
+        
+
+        <button id="submit-id" title="Press here for the Prediction">Predict/রেজাল্ট দেখুন</button>
+
+    </div>
+    <b><div id="show-id"></div></b>
+    <div style="width: 100%; text-align: center;">
+    <button id="sol-but">show</button>
+    </div>
+
+    
+    <!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+</div>
+
+
+
+    <!-- solution-div----------------------------------------------------------------------- -->
+<div style="align-items: center; width: 100%;">
+<div class="sol-div">
+
+    <p id="solution"></p> 
+
+    <div id="solution1" style="display: none;">
+        <h3>Know about the Disease</h3>
+        <p>Bacterial spot is one of the most devastating diseases of  tomato. The disease occurs worldwide where tomato are grown in warm, moist areas. When it occurs soon after transplanting and weather conditions remain favorable for disease development, the results are usually total crop loss.</p>
+        <br><p>The disease causes leaf and fruit spots as well as defoliation, which leads to sun-scalded fruit and crop loss. Because of the diversity between the bacterial spot pathogens, the disease can occur at various temperatures, but is generally favored by temperatures in the range of 75 to 86 degrees F, as well as high precipitation.</p>
+        <br><p>It’s important not to eat fruit or vegetables that are infected with bacterial spot. Although people can’t catch bacterial spot, the lesions provide an opening for all kinds of pathogens that we can catch to enter the produce. That’s why you unfortunately must dispose of all infected crops by burning them or burying them so that it does not spread.</p>
+        
+        <h4>Causes of Bacterial Spot:</h4>
+        <p>Bacterial spot is the result of the bacteria xanthomonas campestris pv. vesicatoria, which lives on infected tomato seeds, peppers, and specific trees and weeds. It can be spread through irrigation, rain, or wet plants, and plants can be infected through their pores or through wounds. Tomato plants are especially susceptible to bacterial spot in warm, moist weather conditions. 
+        </p>
+        <h4>Solution:</h4>
+        <p>
+            <ul style="list-style: disc;">
+                <li><p>One of the best ways to avoid bringing bacterial spot into the garden is to purchase certified disease-free tomato seeds. Also, gardeners should always use either a sterilized soil medium or one that is commercially made. If purchasing disease-free tomato seeds is not an option, it is important to try to sterilize the seeds as best you can, eliminating any bacteria that may exist on the seed’s surface and interior. To do this, fully submerge your tomato seeds in 1.3% sodium hypochlorite for one minute. A slightly more risky technique exists which could affect germination but helps to sterilize both the outer surface and interior of the tomato seed by submerging the seeds in 122 degree F water for 25 minutes.</p></li>    
+                <li><p>Practicing crop rotation will help lessen the spread of bacterial spot. Because moist conditions and humidity attract bacterial spot, watering should be done in the early morning hours to allow plants plenty of time to dry out before the afternoon heat comes along. Gardeners should also be careful not to give their tomato plants too much water, and should try to keep leaves dry when watering their plants, focusing on watering the soil instead of the plant itself. Drip irrigation is recommended over standard overhead watering techniques.  
+                </p></li>
+            </ul>
+        </p>
+        <h5>Useful links:</h5>
+        <ol>
+            <li><a href="https://www.gardeningchannel.com/tomato-diseases-how-to-fight-bacterial-spot/"></a>Tomato Bacterial</li>
+        </ol>
+    </div>
+
+
+    <div id="solution2" style="display: none;" >
+        <h3>Know about the Disease : </h3>
+        <p>Early blight is a common tomato disease caused by the fungus Alternaria solani. It can affect almost all parts of the tomato plants, including the leaves, stems, and fruits. The plants may not die, but they will be weakened and will set fewer tomatoes than normal.</p>
+        <br><br>
+        <p>It can occur at any time during the growing season. High humidity and temperatures above 75°F cause it to spread rapidly.</p>
+        <h4>Solution : </h4>
+        <p>
+            Once a blight on tomatoes takes hold, it’s very hard to control. After identification, tomato blight treatment begins with fungicide treatments, although when it comes to tomato blight, solutions really lie in prevention. Use fungicides before the fungus appears and they should be applied regularly throughout the season. Fungus spores are spread by splashing water. Stay away from the garden while foliage is wet from dew or rain. Avoid watering in late afternoon or evening so that water can evaporate from the leaves and, if possible, water the ground and not the foliage. Most fungi grow best in the warm, wet dark. Rotate crops as often as possible and never turn any tomato debris back into the soil. Use healthy transplants from a reliable nursery and remove damaged lower leaves regularly since that’s where most fungi attacks.
+        </p>
+        <p>For more about solution you can visit this websites : </p>
+        <ol>
+            <li><a href="https://www.gardeningknowhow.com/edible/vegetables/tomato/tomato-blight.htm">Blight On Tomatoes – Tomato Blight Treatment And Prevention</a></li>
+        </ol>
+        
+    </div> 
+
+
+
+
+
+
+    <div id="solution3" style="display: none;">
+        <h2>Know About The Disease:</h2>
+        <p>Late blight is the least common blight on tomatoes, but it is, by far, the most destructive. Pale green, water soaked spots on the leaves quickly grow into purplish-black lesions and stems turn black. It attacks in rainy weather with cool nights and quickly infects fruits. Infected fruits show brown, crusty patches and rot quickly. This is the blight that caused the Great Potato Famine of the 1840s and will quickly infect any potatoes planted nearby. All potatoes should be dug and disposed of as should all tomato plants and fruit affected by this tomato blight. Treatment is simple. Burn everything the fungus may have touched.</p>
+        <h4>Soltion:</h4>
+        <p>Once a blight on tomatoes takes hold, it’s very hard to control. After identification, tomato blight treatment begins with fungicide treatments, although when it comes to tomato blight, solutions really lie in prevention. Use fungicides before the fungus appears and they should be applied regularly throughout the season. Fungus spores are spread by splashing water. Stay away from the garden while foliage is wet from dew or rain. Avoid watering in late afternoon or evening so that water can evaporate from the leaves and, if possible, water the ground and not the foliage. Most fungi grow best in the warm, wet dark. Rotate crops as often as possible and never turn any tomato debris back into the soil. Use healthy transplants from a reliable nursery and remove damaged lower leaves regularly since that’s where most fungi attacks begin. Remove all plant debris at the end of the growing season so the spores have nowhere to over winter.</p>
+        <h4>Useful Links:</h4>
+        <p><a href="https://www.gardeningknowhow.com/edible/vegetables/tomato/tomato-blight.htm"></a>Tomato Late Blight</p>
+    </div>
+
+    <div id="solution4" style="display: none;">
+        <h2>Know About Disease:</h2>
+        <p>Tomato leaf mold is a fungal disease that can develop when there are extended periods of leaf wetness and the relative humidity is high (greater than 85 percent). Due to this moisture requirement, the disease is seen primarily in hoophouses and greenhouses.
+
+            Leaf mold is caused by the fungus Passalora fulva (previously called Fulvia fulva or Cladosporium fulvum). It is not known to be pathogenic on any plant other than tomato.</p>
+            <h4>Solution:</h4>
+            <p>Upon noticing the infected areas, the first step is to let the plants air out and dry. If they are being cultivated in a greenhouse, expose them to dry air conditions, because the humidity that the fungus needs to survive and thrive is dried up in the open air.
+
+                If the tomatoes are being cultivated outdoors, try to keep the leaves dry when watering the plants. One thing you can do to help keep the leaves as dry as possible is to water in the early morning hours, that way the plant has plenty of time to dry before the sun comes out, which will keep the humidity around the leaves low. You can also try drip irrigation methods, or soak watering methods to attempt to water the soil without ever wetting the leaves of the plant.
+                
+                Another treatment option is fungicidal sprays. When using fungicide sprays, be sure to thoroughly cover all parts of the plant that is above ground, focusing specifically on the underside of leaves. Calcium chloride sprays are among the most highly recommended types for leaf mold. There are a few organic fungicides on the market as well. 
+                There are also a handful of natural remedy recipes that you can try that are made out of common household items that can be mixed up in your kitchen and sprayed directly on your tomato crops. An apple-cider and vinegar mix is believed to treat the mold effectively. Corn and garlic spray can also be used to prevent fungi outbreaks before they even occur. There is also a milk-based spray that is touted as an all-natural, helpful cure for leaf </p>
+        <h2>Useful Links:</h2>
+        <p><a href="https://www.gardeningchannel.com/tomato-diseases-how-to-fight-leaf-mold/">Tomato Leaf Mold</a></p>            
+    </div>
+
+    <div id="solution5" style="display: none;">
+        <h2>Know About Disease:</h2>
+        <p>Septoria leaf spot on tomato (Lycopersicon) Septoria leaf spot is caused by a fungus, Septoria lycopersici. It is one of the most destructive diseases of tomato foliage and is particularly severe in areas where wet, humid weather persists for extended periods.
+            Although Septoria leaf spot is not necessarily fatal for your tomato plants, it spreads rapidly and can quickly defoliate and weaken the plants, rendering them unable to bear fruit to maturity.  
+            .</p>
+            <h4>Solution:</h4>
+            <p>There are a few options for treating Septoria leaf spot when it appears; these include:</p><br>
+            <p>#Removing infected leaves:
+                Remove infected leaves immediately, and be sure to wash your hands and pruners thoroughly before working with uninfected plants.
+               #Consider organic fungicide options:
+                Fungicides containing either copper or potassium bicarbonate will help prevent the spreading of the disease. Begin spraying as soon as the first symptoms appear and follow the label directions for continued management.
+               #Consider chemical fungicides:
+                While chemical options are not ideal, they may be the only option for controlling advanced infections. One of the least toxic and most effective is chlorothalonil (sold under the names Fungonil and Daconil).
+            </p>
+            <h2>Useful Links:</h2>
+        <p><a href="https://www.gardeningchannel.com/tomato-diseases-how-to-fight-leaf-mold/">Tomato Leaf Mold</a></p>            
+    </div>
+    
+    <div id="solution6" style="display: none;">
+        <h2>Know About Disease:</h2>
+        <p>Two-spotted spider mite (Tetranychus urticae) feeding damage on tomato leaf. Mites, in particular the two-spotted spider mite (Tetranychus urticae), are a severe problem of greenhouse and high-tunnel grown vegetables, including tomato, eggplant, pepper and cucumber.</p>
+            <h4>Solution:</h4>
+            <p>Two-Spotted Spider Mite Damage:</p><br>
+            <p>As you prepare to fight two-spotted spider mite damage, it helps to understand the pest’s life cycle. Here is a summary of what happens. The mature female two-spotted spider mites overwinter on host plants. They pass the winter either under the host plant’s bark or else on the base of neighbor plants. In spring, the females mate. They lay 2 to 6 eggs a day on the bottom side of the host plants’ leaves, laying perhaps 100 in their short lifetime. In less than a week, the eggs hatch. The new mites lose their exoskeletons three times in their first few weeks. They then become mature adult mites, mate and lay eggs. If you see two-spotted spider mite damage on your plants, they probably have mites in all stages of development. Generations tend to overlap. In hot dry weather, the infestations are particularly severe and control of two-spotted mites becomes important. You might find two-spotted spider mite damage on either deciduous or evergreen trees or garden ornamentals. Even garden veggies can be at risk. Two-spotted mites suck essential plant fluids from the leaves. With a serious infestation, the foliage yellows or appears mottled. You will likely see fine, silken threads over the leaf surface. Even with heavy infestations, you may not be able to spot the actual mites on your plants. To confirm your suspicions, hold a piece of white paper under a stippled leave and tap it. Tiny moving spots on the paper means you need to think about treating for two-spotted mites. </p>
+            <p>Two-Spotted Spider Mite Control</p>
+            <p>The best way to begin treating for two-spotted mites is to apply a pesticide specific to mites called a miticide. Ideally, you should start treating for two-spotted mites before your plants are seriously damaged. Apply the miticide for control of two-spotted mites every 7 days or so. Since mites can develop resistance to chemicals, switch to another type of miticide after three applications.
+            </p>
+            <h2>Useful Links:</h2>
+        <p><a href="https://www.gardeningknowhow.com/plant-problems/pests/insects/two-spotted-spider-mite-control.htm">Tomato Two Spotted spider Mite</a></p>            
+    </div>
+
+    <div id="solution7" style="display: none;">
+        <h2>Know About Disease:</h2>
+        <p>TTarget spot is a fungal disease that mainly affects the foliage of many members of the Solanacea family such as potatoes, tomatoes and capsicums. It can also be transferred to the tubers of potatoes and occasionally the fruit of others. It is also referred to as 'early blight' on potatoes. </p>
+            <h4>Solution:</h4>
+            <p>1. Encourage healthy, strong growth of plants with adequate moisture and nutrition.</p>
+            <p>2. Practice regular crop rotation methods so problems do not re-occur and reinfect young plants.</p>
+            <p>3. Ensure all seed you may sow are disease free. Avoid collecting seed from mature plants showing this disease. If target spot becomes a major concern, remove all plants and burn or bin - do not compost!  Allow soil to be fallow for at least one season before attempting to replant.</p>
+            <h2>Useful Links:</h2>
+        <p><a href="https://www.gardeningknowhow.com/plant-problems/pests/insects/two-spotted-spider-mite-control.htm">Tomato Two Spotted spider Mite</a></p>            
+    </div>
+
+    <div id="solution8" style="display: none;">
+        <h2>Know About Disease:</h2>
+        <p>Tomato mosaic virus is a serious and extremely contagious disease. It is also hard to identify, with symptoms varying wildly depending upon the variety and age of the infected plant, the strain of the virus, and environmental conditions. To make matters worse, it is very hard to distinguish from the closely related tobacco mosaic virus.</p>
+            <h4>Solution:</h4>
+            <p>This viral disease is able to overwinter on perennial weeds and is then spread by several insects including aphids, leafhoppers, whiteflies and cucumber beetles. Both cuttings and divisions from infected plants will be infected. The disease is spread into the plant via small wounds caused by mechanical injury, insect chewing, and grafting. Leftover plant debris is the most common contagion. Tomato mosaic virus of tomatoes can exist in the soil or plant debris for up to two years, and can be spread just by touch – a gardener who touches or even brushes up against an infected plant can carry the infection for the rest of the day. You should wash your hands with soap and disinfect tools after handling tomato plants to keep the disease from spreading. Treating mosaic virus is difficult and there are no chemical controls like there are for fungal diseases, although some varieties of tomato are resistant to the disease, and seeds can be bought that are certified disease free. Sanitation is the most important application to practice when controlling tobacco mosaic virus. Tools should be boiled for 5 minutes and then washed with a strong detergent. Bleaching doesn’t work for viral decontamination. Destroy any seedlings that appear stunted or distorted and then decontaminate tools and hands. Keep the area around the tomatoes weeded and free of plant detritus to minimize areas the disease can harbor. Control insects as well to lessen the chances of contamination. If you spot the disease in your garden, you should immediately dig up and burn infected plants. Don’t plant tomatoes, cucumbers or other plants that are susceptible to mosaic virus in that same area again.</p>
+            <h2>Useful Links:</h2>
+        <p><a href="https://www.gardeningknowhow.com/plant-problems/pests/insects/two-spotted-spider-mite-control.htm">Tomato Two Spotted spider Mite</a></p>            
+    </div>
+
+    <div id="solution9" style="display: none;">
+        <h2>Know About Disease:</h2>
+        <p>Tomato yellow leaf curl virus (TYLCV) is a DNA virus from the genus Begomovirus and the family Geminiviridae. TYLCV causes the most destructive disease of tomato, and it can be found in tropical and subtropical regions causing severe economic losses.</p>
+            <h4>Solution:</h4>
+            <p>Currently, the most effective treatments used to control the spread of TYLCV are insecticides and resistant crop varieties. The effectiveness of insecticides is not optimal in tropical areas due to whitefly resistance against the insecticides; therefore, insecticides should be alternated or mixed to provide the most effective treatment against virus transmission. Developing countries experience the most significant losses due to TYLCV infections due to the warm climate as well as the expensive costs of insecticides used as the control strategy. Other methods to control the spread of TYLCV include planting resistant/tolerant lines, crop rotation, and breeding for resistance of TYLCV. As with many other plant viruses, one of the most promising methods to control TYLCV is the production of transgenic tomato plants resistant to TYLCV.</p>
+            <h2>Useful Links:</h2>
+        <p><a href="https://en.wikipedia.org/wiki/Tomato_yellow_leaf_curl_virus">Tomato Yellow Leaf Curl Virus</a></p>            
+    </div>
+    <div id="solution10" style="display: none;">
+
+        <h3 style="color: green;">Tomato Has No Disease</h3>
+
+    </div>
+
+
+</div>
+</div>
+<!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+
+    
+    
+
+<script>
+
+    chkkk = 1;
+    glb_var = "";
+    $(document).ready(function(){
+
+        $('#sol-but').click(function(){
+            var n = glb_var.search("Bacterial");
+            var m = glb_var.search("Early");
+            var o = glb_var.search("Late");
+            var p = glb_var.search("Leaf");
+            var q = glb_var.search("Septoria");
+            var r = glb_var.search("Two");
+            var s = glb_var.search("Target");
+            var t = glb_var.search("Curl");
+            var u = glb_var.search("Mossaic");
+
+
+        
+            var $this = $(this);
+            if(glb_var !== "" && glb_var !== "You Haven't Choose anything YET !!!")
+            $this.toggleClass('hide');
+            if($this.hasClass('hide') && glb_var !== "" && glb_var !== "You Haven't choosen anything YET !!!")
+            {
+                $this.text('hide');
+                if(n !== -1)
+                $("#solution1").show();
+                else if(m !== -1)
+                $("#solution2").show();
+                else if(o != -1)
+                $("#solution3").show();
+                else if(p != -1)
+                $("#solution4").show();
+                else if(q != -1)
+                $("#solution5").show();
+                else if(r != -1)
+                $("#solution6").show();
+                else if(s != -1)
+                $("#solution7").show();
+                else if(t != -1)
+                $("#solution9").show();
+                else if(u != -1)
+                $("#solution8").show();
+                else
+                $("#solution10").show();
+            }              
+            else
+            {
+                $("#solution1").hide();
+                $("#solution2").hide();
+                $("#solution3").hide();
+                $("#solution4").hide();
+                $("#solution5").hide();
+                $("#solution6").hide();
+                $("#solution7").hide();
+                $("#solution8").hide();
+                $("#solution9").hide();
+                $("#solution10").hide();
+
+
+                $this.text('show');
+                
+            }
+        
+        });  
+
+        $("#image").change(function() { 
+        var fileName = $("#image").val();  
+
+        if(fileName) {   
+            $('#submit-id').show();
+            $('#show-id').hide();
+            
+            if($('#sol-but').hasClass('hide'))
+            $('#sol-but').click();
+            $('#sol-but').hide();
+        } 
+    
+        });
+
+
+    });
+
+
+    $('#submit-id').click(function() {
+      
+      var form_data = new FormData($('#upload-file')[0]);
+      var $myvar;
+      $.ajax({
+          type: 'POST',
+          url: '/tomato-predict',
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              console.log('Success!');
+          },
+      })
+      .done(function(data) {
+          $('#show-id').text(data.name).show();           
+          $("#solution").text(data.name).hide();
+          var myvar = document.getElementById("solution").textContent;
+          glb_var = document.getElementById("solution").textContent;
+          var qq = glb_var.search("Wrong");
+          if(qq == -1)
+          $('#sol-but').show();
+
+        });
+    
+  });
+</script>
+
+{% endblock %}
+
+

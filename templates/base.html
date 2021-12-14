@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    {% block stylee %}{% endblock %}
+    <title>{% block title%}{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+
+</head>
+<body>
+
+
+<div class="my_nav" style="background-color: rgb(70, 179, 206); height: 48px; position: fixed; width: 100%;">
+<div style="padding-top: 12px;">
+
+  <a href="ppp.html" style="padding-left: 10px; color: white; font-weight: 300;">Home</a>
+  <a href="ppp.html#section_jump" style="padding-left: 40px; color: white;">How It Works</a>
+  <a href="ppp.html" style="padding-left: 40px; color: white;">About</a>
+  <a href="ppp.html" style="padding-left: 40px; color: white;">Contact</a>
+
+</div>
+</div>
+
+<br><br>
+
+<div>
+  <div class="sidebar11">
+    <a class="current1" href="apple.html">Apple</a>
+    <a class="current2" href="tomato.html">Tomato</a>
+    <a class="current3" href="potato.html">Potato</a>
+    <a class="current4" href="rice.html">Rice</a>
+  </div>
+
+  <div style="align-items: center; margin-left: 200px;">
+
+    {% block content %}
+
+    {% endblock %}
+
+  </div>
+</div>
+
+    
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
+      
+</body>
+</html>

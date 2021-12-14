@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3cb50b8537.js" crossorigin="anonymous"></script>
+    <title>HOME</title>
+
+<style>
+body{
+    margin: 0;
+    background-image: url("{{ url_for('static', filename='backimg2.jpg') }}");
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* curve started .........................................................................................................*/
+
+.curved{
+    background-color: rgba(255, 0, 0, 0);
+    color: rgb(14, 14, 14);
+    text-align: center;
+}
+
+.curved h1{
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.curved p{
+    /* font-size: 2rem; */
+    margin: 0 5px 0 5px;
+}
+
+
+
+.curved svg{
+    display: block;
+}
+/* curve ended .........................................................................................................*/
+
+
+
+.buttons{
+    padding: 0px;
+
+    margin: 0px;
+    background-color: #ffffff99;
+    text-align: center;
+    padding-bottom: 1px;
+}
+
+.center{
+    margin:0% 40%;
+    width: 20%;
+    padding-top: 2px;
+    /* padding-top: 150px; */
+    padding-bottom: 2px;
+    /* padding: 10% 0 10% 0; */
+    /* background-color: yellow; */
+}
+
+.center ul {
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.center ul li{
+    transition: transform .2s;
+}
+
+.center ul li div{
+    background-color: hsl(135, 49%, 42%); border-radius: 20px; margin: 10px 0px 10px 0px;
+    padding: 3px 0px 3px 0px;
+
+}
+.center ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+.center ul li a div{
+    width: 100%; height: 100%;
+
+}
+
+.center li:hover{transform: scale(1.1);}
+
+
+
+
+
+.container {
+  border: 2px solid #ccc;
+  background-color: rgba(238, 238, 238, 0);
+  /* border-radius: 5px; */
+  border-width: 0px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  margin-right: 20px;
+  width: 50%;
+  /* height: 600px; */
+  /* border-radius: 50%; */
+}
+
+.container span {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+@media (max-width: 500px) {
+  .container {
+      text-align: center;
+  }
+  .container img {
+      margin: auto;
+      float: none;
+      display: block;
+  }
+}
+
+.container_text{
+    text-align: center;
+    width: 100%; 
+    padding-top: 10%;
+}
+
+
+
+.container_text_inner{
+    float: right;
+    width: 700px;
+    background-color: #00b7ff;
+    border-radius: 40%;
+    height: 100px;
+    text-align: center;
+    padding-top: 40px;
+    margin-right: 150px;
+}
+
+
+
+#sec-1{
+    padding-top: 0px;
+}
+#sec-2{
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+#sec-3{
+    
+    background-color: #68a8a500;
+}
+
+
+
+
+.my_nav a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+
+
+
+#navbar {
+  background-color: #46b3ce;
+  position: fixed;
+  top: -50px;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+  text-align: center;
+  align-items: center;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+#leaf{
+    font-size: 70px;
+}
+
+
+.fab{
+    font-size: 80px;
+}
+
+
+
+
+.wrapper {
+  width: 300px;
+  /* background-color: red; */
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+
+
+
+.last_sec{
+    background-color: #ebe3e3;
+    /* text-align: center; */
+    /* align-items: center; */
+    height: 300px;
+    width: 100%;
+    /* padding-top: 100px; */
+}
+
+
+
+* {box-sizing: border-box;}
+
+
+
+.header {
+  overflow: hidden;
+  background-color: #0d905e;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<section id="sec-11"></section>
+
+<div id="navbar">
+    <a href="#sec-11" style="padding-left: 10px; color: white;">Intro</a>
+    <a href="#sec-22" style="padding-left: 40px; color: white;">Preictions</a>
+    <a href="#sec-3" style="padding-left: 40px; color: white;">How to use</a>
+    <a href="#sec-4" style="padding-left: 40px; color: white;">Helps</a>
+</div>
+      
+
+<div class="header">
+    <a href="#default" class="logo">PLANT'S DOCTOR</a>
+    <div class="header-right">
+        <!-- <p>Akib</p> -->
+      <!-- <a class="active" href="#home">Home</a> -->
+      <a href="/user_profile">{{name}}</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+
+<!-- <div class="clear_div"></div> -->
+
+<section id="sec-0">
+    <div class="my_nav" style="background-color: #46b3ce; height: 50px; width: 100%; text-align: center; margin: 0;">
+        <div style="padding-top: 12px;">
+        
+            <a href="#sec-11" style="padding-left: 10px; color: white;">Intro</a>
+            <a href="#sec-22" style="padding-left: 40px; color: white;">Preictions</a>
+            <a href="#sec-3" style="padding-left: 40px; color: white;">How to use</a>
+            <a href="#sec-4" style="padding-left: 40px; color: white;">Helps</a>
+        
+        </div>
+        </div>
+</section>
+
+
+
+
+<section id="sec-1">
+    <div class="curved">
+
+        <h1>Welcome</h1>
+        <p>Rice is the second most widely grown cereal crop and the staple food for more than half the world's population. More than 3 billion people consume more than 100 kg of rice per year. Rice is cultivated on 155.5 million ha with an average growth rate of 0.39% a year, in the last 30 years. In the near future, the possibility for expanding areas under rice-based systems will remain very limited because of the scarcity of global water resources for agriculture, the expansion of urban and industrial sectors in Asia where land is already limited and the high costs of developing new lands that are suited for rice production in Sub-Saharan Africa and Latin America. The average growth rate of rice yield was 3.68% per year in the early 1980s, but it has decreased to 0.74% per year in the late 1990s. Several factors may contribute to the decline of the area under cultivation and in yield growth. The most important of these factors are: limited returns as we approach the yield potential of the high yielding varieties, declining productivity in intensive rice production systems, pressures from abiotic and biotic stresses, low returns in developing countries, increasing production costs in industrialized countries, and increasing public concern for the protection of environmental resources. One of the most effective means of addressing the issues in rice cultivation and raising the average yields at the farm level is through research and subsequent dissemination of the resulting data. Rice science has made considerable progress. In the area of rice varietal improvement, recent advances in hybrid rice and the new rice for Africa (NERICA) are just two examples of the successful contributions of science to the development of rice. Research could also help reduce the gap between the potential yield obtained on experimental stations and the actual yield obtained in the fields. This could be possible by developing and promoting rice integrated crop management (RICM) systems for improving productivity and reducing the production cost per unit of output. The need for a sustainable increase in rice production affects everyone. The International Year of Rice provide us with a chance to improve food security, alleviate poverty and preserve the environment for the billions of people for whom Rice is Life. </p>
+        <br>
+        <p>Potato is the most important root crop in Bangladesh. The field production is very much lower compared to other developed countries. Pests and diseases hampered the production due to the prevailing climatic condition, which favors the development in Bangladesh of specific diseases. Among them Brown rot (Ralstonia solanacearum)is the most alarming disease at present and previous time. The major areas of Bangladesh have faced many hampers on this disease. The potato growers and businessmen of Bangladesh are facing much problems on this disease especially in case of export to other countries as Russia, Malaysia, Singapore, Indonesia, Sri Lanka, Thailand, Hong Kong, Vietnam, Maldives, Turkey, Azerbaijan, Ethiopia and Nigeria. But during last year Russian Government banned import potatoes from Bangladesh. So, from these perspectives, this concept paper was studied to evaluate the most appropriate status of this disease caused by organisms and its best control strategies to impart better production thinking for Bangladeshi potato growers, exporters and other related personnels.</p>
+        <br>
+        <p>Brinjal and tomato, both of these Solanaceous crops, suffer from different diseases based on their surrounding environment. In charland ecosystem, due to the current trend of climate change these two crops have become vulnerable to disease infection. A comprehensive survey was conducted in Jamalpur and Sherpur districts to measure the severity of major diseases of brinjal and tomato in this region during the rabi season of 2018-19. This survey was based on farmers' fields targeting 10 different locations where brinjal and tomato were grown extensively. Data were collected from randomly selected farmer's vegetable fields where incidence and severity were recorded. Through the survey, five (5) diseases based on their incidence and severity were categorized as major diseases in studied areas. Bacterial wilt of brinjal (60%) and viral disease of tomato (41.67%) were found to be higher in incidence. This was a major limiting factor for decreasing total brinjal and tomato production in the charland of Jamalpur and Sherpur. Wilting of tomato (20%), viral disease of brinjal (20%) and phomopsis blight of brinjal (13.33%) were medium in incidence at different locations. Farmers of these areas found these diseases to be a serious threat to future cultivation and expansion of brinjal and tomato in charland.</p>
+    <section id="sec-22"></section>    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#ffffff" fill-opacity="0.6" d="M0,160L48,144C96,128,192,96,288,85.3C384,75,480,85,576,106.7C672,128,768,160,864,186.7C960,213,1056,235,1152,213.3C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </div>
+</section>
+
+<section id="sec-2">
+    <div class="buttons">
+        <div class="center">
+            <ul>
+
+                <li><div style="margin-top: 0px;"><a href="apple.html"><div>Apple</div></a></div></li>
+                <li><div style="margin-top: 0px;"><a href="potato.html"><div>Potato</div></a></div></li>
+                <li><div style="margin-top: 0px;"><a href="rice.html"><div>Rice</div></a></div></li>
+                <li><div style="margin-top: 0px;"><a href="tomato.html"><div>Tomato</div></a></div></li>
+    
+            </ul>
+    
+        </div>
+        
+        
+    </div>
+    <div style="padding-top: 0px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="0.6" d="M0,224L48,208C96,192,192,160,288,160C384,160,480,192,576,208C672,224,768,224,864,224C960,224,1056,224,1152,213.3C1248,203,1344,181,1392,170.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
+        </div>
+</section>
+
+<section id="sec-3">
+
+    <div style="width: 100%; text-align: center;">
+
+        <h1 style="color: #fffafa; padding-top: 10px;">Instructions</h1>
+
+    </div>
+
+
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='myproj_img1.png') }}" alt="Avatar" >
+        <div class="container_text">
+            <div class="container_text_inner">
+                <p>Click the predictions.....It will take your to the avaliable options</p>
+                <br>
+                <div><a href="apple.html" style="text-decoration: none; color: #035a12;">Take to prediction</a></div>
+            </div>  
+        </div>        
+    </div>
+    
+    <div class="container">
+        <img src="{{ url_for('static', filename='myproj_img2.png') }}" alt="Avatar" >
+        <div class="container_text">
+            <div class="container_text_inner">
+                <p>Click on the buttons for which vegetable/fruits you want to predict</p>
+                <br>
+                <div><a href="apple.html" style="text-decoration: none; color: #035a12;">Take to prediction</a></div>
+            </div>
+            
+        </div>        
+    </div>
+
+    <section id="section_jump"></section>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='myproj_img3.png') }}" alt="Avatar" >
+        <div class="container_text">
+            <div class="container_text_inner">
+                <p>Here Click the "Choose" button to select a image from your device</p>
+                <br>
+                <div><a href="apple.html" style="text-decoration: none; color: #035a12;">Take to prediction</a></div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='myproj_img4.png') }}" alt="Avatar" >
+        <div class="container_text">
+            <div class="container_text_inner">
+                <p>Select any Image from Your Device</p>
+                <br>
+                <div><a href="apple.html" style="text-decoration: none; color: #035a12;">Take to prediction</a></div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='myproj_img5.png') }}" alt="Avatar" >
+        <div class="container_text">
+            <div class="container_text_inner">
+                <p>Click the "Preditc" button to get the result for your selected image</p>
+                <br>
+                <div><a href="apple.html" style="text-decoration: none; color: #035a12;">Take to prediction</a></div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="container" style="margin-bottom: 0px;">
+        <img src="{{ url_for('static', filename='myproj_img6.png') }}" alt="Avatar" >
+        <div class="container_text">
+            <div class="container_text_inner">
+                <p>Click "Show" button to know about solution of your plant disease</p>
+                <br>
+                <div><a href="apple.html" style="text-decoration: none; color: #035a12;">Take to prediction</a></div>
+            </div>
+        </div>        
+    </div>
+
+
+
+</section>
+
+<section id="sec-4" style="margin-top: 0px;">
+
+
+<div class="last_sec">
+    <p style="padding-top: 30px; padding-left: 10px;"><b>PLANTS DOCTOR</b></p>
+    <hr>
+
+    <div style="margin-left: 20px;">
+        <p><i class="fas fa-user"></i> About   |  Md. Saidul Islam Akib    Md. Azizul Hakim</p>
+        <p> <i class="far fa-address-book"></i> Contact |  +8801631-820558          +8801744-947701</p>  
+            <p> <i class="fas fa-envelope"></i> Email   |  mymail@gmail.com</p>
+    </div>
+
+    
+    <div style="width: 100%; text-align: center;" >
+        <div sty>
+        <i class="fab fa-canadian-maple-leaf"></i>
+        </div>
+        
+    </div>
+
+</div>
+
+
+
+</section>
+
+    <!-- <hr> -->
+
+    
+<script>
+// When the user scrolls down 20px from the top of the document, slide down the navbar
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+        } else {
+        document.getElementById("navbar").style.top = "-50px";
+        }
+    }
+</script>
+
+    
+
+
+</body>
+</html>
+

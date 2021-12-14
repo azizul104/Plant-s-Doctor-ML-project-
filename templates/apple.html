@@ -1,0 +1,335 @@
+{% extends "base.html" %}
+
+{% block stylee %}
+
+<style>
+#predict-value{
+        cursor: pointer;
+        width: 100%; 
+        height: 40px; 
+        background-color: #56d4bf; 
+        border-radius: 25px;
+        /* border-style: dotted;  */
+        text-align: center; 
+        margin-top: 30px;
+    }
+
+    #submit-id{
+        height: 40px;
+        width: 100%;
+        background-color: #56d4bf;
+        border-radius: 25px;
+        border-style: solid;
+        text-align: center;
+        margin-top: 27px;
+        display: none;
+    }
+    
+    #show-id{
+        background-color: antiquewhite; 
+        /* border-style: dotted;  */
+        border-radius: 20px;
+        max-width: 800px;
+        margin-top: 27px;
+        height: 50px;
+        padding-top: 13px;
+        text-align: center;
+        text-size-adjust:initial; 
+        text-decoration: red;
+        display: none;
+    }
+
+    #main-div{
+        width:600px;
+        margin: 0 auto; 
+        padding-top: 100px; 
+        padding-bottom: 50px;
+    }
+    #sub-main-div{
+        align-items: center; 
+        text-align: center;
+    }
+
+    #sol-but{
+        display: none;
+        height: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+        border-radius: 20px;
+        background-color: hsl(130, 77%, 62%);
+    }
+ 
+    .sol-div{
+        /* background-color: blue; */
+        max-width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+
+
+.current1{
+    background-color: #00ffdd;
+}
+
+    .sidebar11 {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar11 a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar11 a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.sidebar11 a:hover:not(.active) {
+  background-color: #00ffdd;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar11 {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar11 a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+
+</style>
+
+{% endblock %}
+{% block title %}Apple{% endblock %} <!-- show title -->
+{% block content %}
+
+<div style="text-align: center; width: 100%;"><h1>Apple/আপেল</h1></div>
+
+<div id="main-div">
+
+    <div id="sub-main-div">
+        <img id="output" src="http://www.ezcopy.net/wp-content/uploads/2018/02/upload-1.png" style="width: 300px; height: 250px;" title="Press Choose to choice your image"/>
+
+        <form id="upload-file">    
+
+            <label for="image" style="cursor: pointer;" id="predict-value" title="Choose a image to predict">
+                <div style="padding-top: 5px;">Choose / বাছাই করুন</div>
+            </label>
+            <input type=file name="image" onchange="loadFile(event)" id="image" style="opacity: 0; z-index: -1; position: absolute;">
+       
+
+        </form>
+        
+
+        <button id="submit-id" title="Press here for the Prediction">Predict/রেজাল্ট দেখুন</button>
+
+    </div>
+    <b><div id="show-id"></div></b>
+    <div style="width: 100%; text-align: center;">
+    <button id="sol-but">show</button>
+    </div>
+
+    
+    <!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+</div>
+
+
+
+    <!-- solution-div----------------------------------------------------------------------- -->
+<div style="align-items: center; width: 100%;">
+<div class="sol-div">
+
+    <p id="solution"></p> 
+
+    <div id="solution1" style="display: none;">
+        <h3>Know about the Disease</h3>
+        <p>    Apple scab is the most common disease of apple and crabapple trees in Minnesota.
+            Scab is caused by a fungus that infects both leaves and fruit.
+            Scabby fruit are often unfit for eating.
+            Infected leaves have olive green to brown spots.
+            Leaves with many leaf spots turn yellow and fall off early.
+            Leaf loss weakens the tree when it occurs many years in a row.
+            Planting disease resistant varieties is the best way to manage scab.
+            Fungicides can be used to manage apple scab. Proper timing of sprays is needed for fungicides to control disease.
+        </p>
+        <h4>Solution:</h4>
+        <p>
+            Planting disease resistant varieties is the best way to prevent apple scab. Many varieties of apple and crabapple trees are resistant or completely immune to apple scab
+        </p>
+    </div>
+    <div id="solution2" style="display: none;" >
+        <h3>Know about the Disease : </h3>
+        <p>Black rot is a disease of apples that infects fruit, leaves, and bark caused by the fungus Botryosphaeria obtusa. It can also jump to healthy tissue on pear or quince trees but is typically a secondary fungus of weak or dead tissues in other plants. Begin checking your apple trees for signs of infection about a week after the petals fall from your apple blossoms.
+
+            Read more at Gardening Know How: What Is Black Rot: Treating Black Rot On Apple Trees https://www.gardeningknowhow.com/edible/fruits/apples/black-rot-on-apple-trees.htm</p>
+        <p>Early symptoms are often limited to leaf symptoms such as purple spots on upper leaf surfaces. As these spots age, the margins remain purple, but the centers dry out and turn yellow to brown. Over time, the spots expand and heavily infected leaves drop from the tree. Infected branches or limbs will show characteristic red-brown sunken areas that expand each year.
+
+            Read more at Gardening Know How: What Is Black Rot: Treating Black Rot On Apple Trees https://www.gardeningknowhow.com/edible/fruits/apples/black-rot-on-apple-trees.htm</p>
+        
+        <p>Fruit infection is the most destructive form of this pathogen and begins with infected flowers before fruits expand. When fruits are tiny and green, you’ll notice red flecks or purplish pimples that enlarge as the fruit does. Mature fruit lesions take on a bulls-eye appearance, with bands of brown and black areas expanding outward from a central point in each lesion. Commonly, black rot disease causes blossom end rot or mummification of the fruits on the tree.
+
+            Read more at Gardening Know How: What Is Black Rot: Treating Black Rot On Apple Trees https://www.gardeningknowhow.com/edible/fruits/apples/black-rot-on-apple-trees.htm</p>
+        <h4>Solution : </h4>
+        <p>
+            <ul style="list-style: disc;">
+                <li>Treating black rot on apple trees starts with sanitation. Because fungal spores overwinter on fallen leaves, mummified fruits, dead bark, and cankers, it’s important to keep all the fallen debris and dead fruit cleaned up and away from the tree.
+
+                    Read more at Gardening Know How: What Is Black Rot: Treating Black Rot On Apple Trees https://www.gardeningknowhow.com/edible/fruits/apples/black-rot-on-apple-trees.htm</li>
+                <li>During the winter, check for red cankers and remove them by cutting them out or pruning away the affected limbs at least six inches (15 cm.) beyond the wound. Destroy all infected tissue immediately and keep a watchful eye out for new signs of infection.
+
+                    Read more at Gardening Know How: What Is Black Rot: Treating Black Rot On Apple Trees https://www.gardeningknowhow.com/edible/fruits/apples/black-rot-on-apple-trees.htm</li>
+                <li>Once black rot disease is under control in your tree and you’re again harvesting healthy fruits, make sure to remove any injured or insect-invaded fruits to avoid re-infection. Although general-purpose fungicides, like copper-based sprays and lime sulfur, can be used to control black rot, nothing will improve apple black rot like removing all sources of spores.
+
+                    Read more at Gardening Know How: What Is Black Rot: Treating Black Rot On Apple Trees https://www.gardeningknowhow.com/edible/fruits/apples/black-rot-on-apple-trees.htm</li>
+
+            </ul>
+        </p>
+    </div> 
+    <div id="solution3" style="display: none;" >
+        <h3>Know about the Disease : </h3>
+        <p>Apples and flowering crabapples are susceptible to several rust diseases including cedar-apple rust, quince rust, and hawthorn rust. Although incited by different species of fungi in the genus Gymnosporangium, they have in common the fact that they must spend part of their life cycle on various trees and shrubs of the Juniperus species such as Eastern red cedar and common juniper. Any of the rust diseases can result in serious losses if environmental conditions are favorable for disease development. Since they are similar in appearance and life cycles, only cedar-apple rust will be discussed in detail.</p>
+
+        <h4>Solution : </h4>
+        <p>
+            Removal of Juniperus spp. from the vicinity of apple orchards has been suggested as a means of control. However, since spores produced on cedar can be wind disseminated several miles, tree removal cannot be expected to give complete control. However, removing Juniperus spp. in the immediate vicinity of orchards can reduce the severity of the disease.
+            Fungicide control should be sprayed at bud break and then weekly until petal fall. Use a fungicide that contains copper, sulfur or mancozeb as an active ingredient. Apple varieties differ greatly in their resistance to rust. Following is a list of varieties of apples grown in the test block at the University of Connecticut Experimental Orchard located in Storrs, CT. It includes their relative resistance to rust.
+        </p>
+    </div>
+    <div id="solution4" style="display: none;">
+
+        <h3 style="color: green;">Apple Has No Disease</h3>
+
+    </div>
+
+
+</div>
+</div>
+<!-- solution-div----------------------------------------------------------------------- -->
+
+
+
+
+
+    
+    
+
+<script>
+
+    chkkk = 1;
+    glb_var = "";
+    $(document).ready(function(){
+
+        $('#sol-but').click(function(){
+            var n = glb_var.search("Scab");
+            var m = glb_var.search("Black");
+            var o = glb_var.search("Cedar");
+
+        
+            var $this = $(this);
+            if(glb_var !== "" && glb_var !== "You Haven't Choose anything YET !!!")
+            $this.toggleClass('hide');
+            if($this.hasClass('hide') && glb_var !== "" && glb_var !== "You Haven't choosen anything YET !!!")
+            {
+                $this.text('hide');
+                if(n !== -1)
+                $("#solution1").show();
+                else if(m !== -1)
+                $("#solution2").show();
+                else if(o != -1)
+                $("#solution3").show();
+                else
+                $("#solution4").show();
+            }              
+            else
+            {
+                $("#solution1").hide();
+                $("#solution2").hide();
+                $("#solution3").hide();
+                $("#solution4").hide();
+                $this.text('show');
+                
+            }
+        
+        });  
+
+        $("#image").change(function() { 
+        var fileName = $("#image").val();  
+
+        if(fileName) {   
+            $('#submit-id').show();
+            $('#show-id').hide();
+            
+            if($('#sol-but').hasClass('hide'))
+            $('#sol-but').click();
+            $('#sol-but').hide();
+        } 
+    
+        });
+
+
+    });
+
+
+    $('#submit-id').click(function() {
+      
+      var form_data = new FormData($('#upload-file')[0]);
+      var $myvar;
+      $.ajax({
+          type: 'POST',
+          url: '/apple-predict',
+          data: form_data,
+          contentType: false,
+          cache: false,
+          processData: false,
+          success: function(data) {
+              console.log('Success!');
+          },
+      })
+      .done(function(data) {
+          $('#show-id').text(data.name).show();           
+          $("#solution").text(data.name).hide();
+          var myvar = document.getElementById("solution").textContent;
+          glb_var = document.getElementById("solution").textContent;
+          var qq = glb_var.search("Wrong");
+          if(qq == -1)
+          $('#sol-but').show();
+
+        });
+    
+  });
+</script>
+
+{% endblock %}
+
+
